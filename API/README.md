@@ -6,17 +6,20 @@
 
 3. Run the following command to clone this repository:
 
-```bash
-git clone https://github.com/what-to-watch/what-to-watch.git
+```git clone https://github.com/siiine-764/BookingApp.git```
 
 Navigate to the cloned directory:
 
-    cd what-to-watch
+    cd BookingApp
 
 4. Run the following command to install the required dependencies:
 
-
-    npm install
+        npm install
+        npm init -y
+        npm add express
+        npm add nodemon
+        npm add dotenv
+        npm add mongoose
 
 To start the development server, run the following command:
 
