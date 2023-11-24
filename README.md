@@ -14,3 +14,5 @@ what you needed to run this project:
 
 expressjs:
 https://expressjs.com/en/starter/installing.html
+mongoose:
+https://mongoosejs.com/docs/guide.html#definition
