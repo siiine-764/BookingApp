@@ -13,7 +13,7 @@ import { promises as fsPromises } from 'fs';
 
 const app = express();
 const port = 8800;
-
+app.use(express.json())
 
 // Read JSON file
 app.get('/read-json', async (req, res) => {
@@ -26,28 +26,28 @@ app.get('/read-json', async (req, res) => {
     res.status(500).send('Error reading JSON file');
   }
 });
-
+   
 
 // Edit JSON file
-// app.post('/edit-json', async (req, res) => {
-//   try {
-//     // Read the existing data
-//     const data = await fsPromises.readFile('data.json', 'utf8');
-//     const jsonData = JSON.parse(data);
+app.post('/edit-json', async (req, res) => {
+  try {
+    // Read the existing data
+    const data = await fsPromises.readFile('data.json', 'utf8');
+    const jsonData = JSON.parse(data);
 
-//     // Modify the data (for example, add a new user)
-//     const newUser = req.body; // Assuming the request body contains the new user data
-//     jsonData.users.push(newUser);
+    // Modify the data (for example, add a new user)
+    const newUser = req.body; // Assuming the request body contains the new user data
+    jsonData.push(newUser);
 
-//     // Write the modified data back to the file
-//     await fsPromises.writeFile('data.json', JSON.stringify(jsonData, null, 2), 'utf8');
+    // Write the modified data back to the file
+    await fsPromises.writeFile('data.json', JSON.stringify(jsonData, null, 2), 'utf8');
 
-//     res.json({ success: true, message: 'JSON file updated successfully' });
-//   } catch (err) {
-//     console.error(err);
-//     res.status(500).send('Error editing JSON file');
-//   }
-// });
+    res.json({ success: true, message: 'JSON file updated successfully' });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Error editing JSON file');
+  }
+});
 
 
 
@@ -63,6 +63,7 @@ const connect = async () => {
   }
 };
 
+app.use(express.json())
 app.use("/api/auth", authRoute);
 app.use("/api/hotels", hotelsRoute);
 app.use("/api/rooms", roomsRoute);

@@ -1,34 +1,71 @@
 [
-    {
-      "person": {
-        "name": "John Doe",
-        "age": 30,
-        "isStudent": false,
-        "address": {
-          "street": "123 Main St",
-          "city": "Anytown",
-          "state": "CA",
-          "postalCode": "12345"
-        },
-        "phoneNumbers": ["555-1234", "555-5678"]
+  {
+    "person": {
+      "idUser": 0,
+      "name": "John Doe",
+      "age": 30,
+      "isStudent": false,
+      "address": {
+        "street": "123 Main St",
+        "city": "Anytown",
+        "state": "CA",
+        "postalCode": "12345"
       },
-      "favoriteFruits": ["apple", "banana", "orange"]
+      "phoneNumbers": [
+        "555-1234",
+        "555-5678"
+      ]
     },
-    
-    {
-      "person": {
-        "name": "Jane Doe",
-        "age": 25,
-        "isStudent": true,
-        "address": {
-          "street": "456 Oak St",
-          "city": "Another Town",
-          "state": "NY",
-          "postalCode": "67890"
-        },
-        "phoneNumbers": ["555-4321", "555-8765"]
+    "favoriteFruits": [
+      "apple",
+      "banana",
+      "orange"
+    ]
+  },
+  {
+    "person": {
+      "idUser": 1,
+      "name": "Jane Doe",
+      "age": 25,
+      "isStudent": true,
+      "address": {
+        "street": "456 Oak St",
+        "city": "Another Town",
+        "state": "NY",
+        "postalCode": "67890"
       },
-      "favoriteFruits": ["grape", "kiwi", "mango"]
-    }
-  ]
-  
+      "phoneNumbers": [
+        "555-4321",
+        "555-8765"
+      ]
+    },
+    "favoriteFruits": [
+      "grape",
+      "kiwi",
+      "mango"
+    ]
+  },
+  {
+    "person": {
+      "idUser": 2,
+      "name": "Jlkkomane Doe",
+      "age": 25,
+      "isStudent": true,
+      "address": {
+        "street": "456 Oak St",
+        "city": "Another Town",
+        "state": "NY",
+        "postalCode": "67890"
+      },
+      "phoneNumbers": [
+        "555-4321",
+        "555-8765"
+      ]
+    },
+    "favoriteFruits": [
+      "grape",
+      "kiwi",
+      "mango"
+    ]
+  }
+]
