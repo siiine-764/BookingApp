@@ -54,7 +54,8 @@ router.get("/:id", async (req, res) =>{
 })
 
 //GET ALL
-router.get("/", async (req, res) =>{
+router.get("/", async (req, res, next) =>{
+    console.log("Im a Hotel");
     try{
         const getHotel = await Hotel.find();
         //Success Responses

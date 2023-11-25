@@ -63,14 +63,23 @@ const connect = async () => {
   }
 };
 
+// middlewares is software that lies between an operating system and the applications running on it
+app.use((req, res, next) => {
+  console.log("Hi Im a middlewares");
+  next()
+})
+
 app.use(express.json())
 app.use("/api/auth", authRoute);
 app.use("/api/hotels", hotelsRoute);
 app.use("/api/rooms", roomsRoute);
 app.use("/api/users", usersRoute);
+
+
 mongoose.connection.on("disconnected", () => {
   console.log("mongoDB disconnected!");
 });
+
  
 app.listen(port, () => {
     connect();
