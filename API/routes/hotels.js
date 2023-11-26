@@ -1,5 +1,6 @@
 import express from "express";
 import Hotel from "../models/Hotel.js";
+import { createError } from "../utils/erorr.js";
 const router = express.Router();
 
 //CREATE
@@ -55,14 +56,17 @@ router.get("/:id", async (req, res) =>{
 
 //GET ALL
 router.get("/", async (req, res, next) =>{
-    console.log("Im a Hotel");
+    const failed = true;
+ 
+    if (failed == false)
+        return next(createError(404, "Sorry not found" ));
     try{
         const getHotel = await Hotel.find();
         //Success Responses
         res.status(200).json(getHotel);
     }catch(err){
         //Server Error Responses
-        res.status(500).json(err);
+        next(err);
     }
 })
 
