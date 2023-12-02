@@ -1,11 +1,3 @@
-body {
-	height: 100%;
-	overflow: hidden;
-	width: 100%;
-	box-sizing: border-box;
-}
-
-/* Adding background image to right side */
 .background-Right {
 	position: absolute;
 	right: 0;
@@ -16,7 +8,6 @@ body {
 	background-position: 50% 50%;
 }
 
-/* Adding background image to left side */
 .background-Left {
 	position: absolute;
 	left: 0;
@@ -34,8 +25,6 @@ body {
 	z-index: -3;
 }
 
-/* Slide is used to slide the form left-right
-	sides when toggle on button */
 #slide {
 	width: 50%;
 	max-height: 100%;
@@ -47,8 +36,6 @@ body {
 		0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
-/* This make forms z-index greater
-than background-image */
 .top {
 	width: 200%;
 	height: 100%;
@@ -57,8 +44,6 @@ than background-image */
 	left: -100%;
 }
 
-/* This indicates Login-form will
-appear on the left side */
 .left {
 	width: 50%;
 	height: 100%;
@@ -67,8 +52,6 @@ appear on the left side */
 	position: absolute;
 }
 
-/* This indicates Register-form
-	will appear on the right side */
 .right {
 	width: 50%;
 	height: 100%;
@@ -77,8 +60,6 @@ appear on the left side */
 	position: absolute;
 }
 
-/* Position the form into center
-of the viewbox */
 .content {
 	width: 250px;
 	margin: 0 auto;
@@ -93,7 +74,7 @@ of the viewbox */
 	font-size: 35px;
 }
 
-button {
+.but{
 	background-color: #4caf50;
 	color: white;
 	width: auto;
@@ -113,11 +94,8 @@ input[type="password"] {
 	box-sizing: border-box;
 }
 
-/* off class is used to indicate
-the active button like login
-or register button */
 .on-off {
 	background: none;
 	color: #4caf50;
 	box-shadow: none;
-}
+} 

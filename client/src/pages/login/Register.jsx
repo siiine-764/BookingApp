@@ -31,8 +31,8 @@ const handleLeftToRightClick = () => {
                             <input type="password" placeholder="password" />
                         </div>
                     </form>
-                    <button id="LeftToRight" className="on-off" onClick={handleLeftToRightClick}>Login</button>
-                    <button onClick={handleRightToLeftClick}>Register</button>
+                    <button id="LeftToRight" className="on-off btn" onClick={handleLeftToRightClick}>Login</button>
+                    <button onClick={handleRightToLeftClick} className='btn'>Register</button>
                 </div>
             </div>
 
@@ -45,8 +45,8 @@ const handleLeftToRightClick = () => {
                             <br />
                             <input type="password" placeholder="password" />
                         </div>
-                        <button id="RightToLeft" className="on-off" onClick={handleRightToLeftClick}>Register</button>
-                        <button>Login</button>
+                        <button id="RightToLeft" className="on-off btn" onClick={handleRightToLeftClick}>Register</button>
+                        <button className='btn'>Login</button>
                     </form>
                 </div>
             </div>

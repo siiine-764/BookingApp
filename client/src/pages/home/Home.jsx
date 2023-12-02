@@ -39,7 +39,6 @@ const Home = () => {
             imageUrl: 'https://cf.bstatic.com/xdata/images/hotel/square600/237686104.webp?k=3813d2af0058b6676f19e8d707977dd086b6fd873d46dd9c19a8aaba24f813ff&o=',
             price: 88,
         },
-        // Add more home objects as needed
       ];
     return (
         <div>
