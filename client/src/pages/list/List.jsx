@@ -7,6 +7,7 @@ import { format } from "date-fns";
 import { useState } from "react";
 import { DateRange } from "react-date-range";
 import SearchItem from "../../components/searchItem/SearchItem";
+import useFetch from "../../hooks/useFetch";
 
 const List = () => {
     const location = useLocation();
@@ -14,59 +15,16 @@ const List = () => {
     const [date, setDate] = useState(location.state.date);
     const [openDate, setOpenDate] = useState(false);
     const [option] = useState(location.state.option);
+    const [min, setMin] = useState(undefined);
+    const [max, setMax] = useState(undefined);
 
-        // Example data for homes
-        const listHotels = [
-            {
-              idHotel: 1,
-              fpCity: 'Lisbon',
-              siTitle: 'Tower Street Apartments',
-              siDistance: '500m from center',
-              siTaxiOp: 'Free airport taxi',
-              siFeatures: 'Entire studio • 1 bathroom • 21m² 1 full bed',
-              siSubtitle: 'Studio Apartment with Air conditioning',
-              siCancelOp: 'Free cancellation',
-              siCancelOpSubtitle: 'You can cancel later, so lock in this great price today!',
-              imageUrl: 'https://cf.bstatic.com/xdata/images/hotel/square600/13125860.webp?k=35b70a7e8a17a71896996cd55d84f742cd15724c3aebaed0d9b5ba19c53c430b&o=',
-              siScore:8.9,
-              siRating: 'Excellent',
-              siPrice: '$122',
-              siTaxOp: 'Includes taxes and fees',
-            },
-            // Add more home objects as needed
-            {
-                idHotel: 2,
-                fpCity: 'Lisbon',
-                siTitle: 'Tower Street Apartments',
-                siDistance: '500m from center',
-                siTaxiOp: 'Free airport taxi',
-                siFeatures: 'Entire studio • 1 bathroom • 21m² 1 full bed',
-                siSubtitle: 'Studio Apartment with Air conditioning',
-                siCancelOp: 'Free cancellation',
-                siCancelOpSubtitle: 'You can cancel later, so lock in this great price today!',
-                imageUrl: 'https://cf.bstatic.com/xdata/images/hotel/square600/13125860.webp?k=35b70a7e8a17a71896996cd55d84f742cd15724c3aebaed0d9b5ba19c53c430b&o=',
-                siScore:8.9,
-                siRating: 'Excellent',
-                siPrice: '$122',
-                siTaxOp: 'Includes taxes and fees',
-              },
-              {
-                idHotel: 3,
-                fpCity: 'Lisbon',
-                siTitle: 'Tower Street Apartments',
-                siDistance: '500m from center',
-                siTaxiOp: 'Free airport taxi',
-                siFeatures: 'Entire studio • 1 bathroom • 21m² 1 full bed',
-                siSubtitle: 'Studio Apartment with Air conditioning',
-                siCancelOp: 'Free cancellation',
-                siCancelOpSubtitle: 'You can cancel later, so lock in this great price today!',
-                imageUrl: 'https://cf.bstatic.com/xdata/images/hotel/square600/13125860.webp?k=35b70a7e8a17a71896996cd55d84f742cd15724c3aebaed0d9b5ba19c53c430b&o=',
-                siScore:8.9,
-                siRating: 'Excellent',
-                siPrice: '$122',
-                siTaxOp: 'Includes taxes and fees',
-              },
-          ];
+    const { data, loading, error, reFetch } = useFetch(
+        `/hotels?city=${destination}&min=${min || 0}&max=${max || 999}`
+      );
+    
+    const handleClick = () => {
+        reFetch();
+    }
     return (
         <div>
             <Navbar />
@@ -101,7 +59,7 @@ const List = () => {
                                     <span className="lsOptionText">
                                         Min price <small>per night</small>
                                     </span>
-                                    <input type="number" className="lsOptionInput" />
+                                    <input type="number" onChange={e=>setMin(e.target.value)}  className="lsOptionInput" />
                                     </div>
                                     
                                     <div className="lsOptionItem">
@@ -109,7 +67,7 @@ const List = () => {
                                     <span className="lsOptionText">
                                         Max price <small>per night</small>
                                     </span>
-                                    <input type="number" className="lsOptionInput" />
+                                    <input type="number" onChange={e=>setMax(e.target.value)}  className="lsOptionInput" />
                                     </div>
                                     <div className="lsOptionItem">
                                     <span className="lsOptionText">Adult</span>
@@ -142,11 +100,19 @@ const List = () => {
                 </div>
                     </div>
                         </div>
-                            <button>Search</button>
+                            <button onClick={handleClick}>Search</button>
                     </div>
                     <div className="listResult">
-                        <SearchItem hotels={listHotels}/>
-                    </div>
+            {loading ? ( "loading" ) :
+                error ? <div>Error: {error.message}</div> :
+             (
+              <>
+                {data.map((item) => (
+                  <SearchItem item={item} key={item._id} />
+                ))}
+              </>
+            )}
+          </div>
                 </div>
             </div>
         </div>

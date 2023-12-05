@@ -27,7 +27,6 @@ app.get('/read-json', async (req, res) => {
     res.status(500).send('Error reading JSON file');
   }
 });
-   
 
 // Edit JSON file
 app.post('/edit-json', async (req, res) => {

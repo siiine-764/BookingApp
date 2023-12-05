@@ -1,56 +1,38 @@
 import React from "react";
 import "./SearchItem.css"
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const HotelCard = ({hotel}) => {
-  const navigate = useNavigate();
-  const handleSearch = () => {
-    navigate("/:{hotel.idHotel}", { state: { hotel } });
-  };
-    return(
-        <div className="searchItem">
-        <img
-          src={hotel.imageUrl}
-          alt=""
-          className="siImg"
-          />
-          <p>{hotel.idHotel}</p>
-        <div className="siDesc">
-          <h1 className="siTitle">{hotel.siTitle}</h1>
-          <span className="siDistance">{hotel.siDistance}</span>
-          <span className="siTaxiOp">{hotel.siTaxiOp}</span>
-          <span className="siSubtitle">
-            {hotel.siSubtitle}
-          </span>
-          <span className="siFeatures">
-            {hotel.siFeatures}
-          </span>
-          <span className="siCancelOp">{hotel.siCancelOp}</span>
-          <span className="siCancelOpSubtitle">
-            {hotel.siCancelOpSubtitle}
-          </span>
-        </div>
-        <div className="siDetails">
-          <div className="siRating">
-            <span>{hotel.siRating}</span>
-            <button>{hotel.siScore}</button>
-          </div>
-          <div className="siDetailTexts">
-            <span className="siPrice">{hotel.siPrice}</span>
-            <span className="siTaxOp">{hotel.siTaxOp}</span>
-            <a href="/hotels/:{hotel.idHotel}" onClick={handleSearch} className="siCheckButton">See availability</a>
-          </div>
+const SearchItem = ({ item }) => {
+    return (
+      <div className="searchItem">
+      <img src={item.photos[0]} alt="" className="siImg" />
+      <div className="siDesc">
+        <h1 className="siTitle">{item.name}</h1>
+        <span className="siDistance">{item.distance}m from center</span>
+        <span className="siTaxiOp">Free airport taxi</span>
+        <span className="siSubtitle">
+          Studio Apartment with Air conditioning
+        </span>
+        <span className="siFeatures">{item.desc}</span>
+        <span className="siCancelOp">Free cancellation </span>
+        <span className="siCancelOpSubtitle">
+          You can cancel later, so lock in this great price today!
+        </span>
+      </div>
+      <div className="siDetails">
+        {item.rating && <div className="siRating">
+          <span>Excellent</span>
+          <button>{item.rating}</button>
+        </div>}
+        <div className="siDetailTexts">
+          <span className="siPrice">${item.cheapestPrice}</span>
+          <span className="siTaxOp">Includes taxes and fees</span>
+          <Link to={`/hotels/${item._id}`}>
+          <button className="siCheckButton">See availability</button>
+          </Link>
         </div>
       </div>
-    )
-}
-const SearchItem = ({ hotels }) => {
-    return (
-        <>
-            {hotels.map((hotel, index) => (
-            <HotelCard key={index} hotel={hotel} />
-            ))}
-        </>
+    </div>
     )
 
 }
