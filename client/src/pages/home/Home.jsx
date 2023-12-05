@@ -9,37 +9,6 @@ import MailList from "../../components/mailList/MailList"
 import Footer from "../../components/footer/Footer";
 
 const Home = () => {
-    // Example data for homes
-    // const homesData = [
-    //     {
-    //       fpName: 'Cozy Cottage',
-    //       fpCity: 'Lisbon',
-    //       description: 'A charming cottage in the heart of the countryside.',
-    //       imageUrl: 'https://cf.bstatic.com/xdata/images/hotel/square600/13125860.webp?k=35b70a7e8a17a71896996cd55d84f742cd15724c3aebaed0d9b5ba19c53c430b&o=',
-    //       price: 100,
-    //     },
-    //     {
-    //         fpName: 'Hilton Garden Inn',
-    //         fpCity: 'Berlin',
-    //         description: 'A charming cottage in the heart of the countryside.',
-    //         imageUrl: 'https://cf.bstatic.com/xdata/images/hotel/square600/237686104.webp?k=3813d2af0058b6676f19e8d707977dd086b6fd873d46dd9c19a8aaba24f813ff&o=',
-    //         price: 88,
-    //     },
-    //     {
-    //         fpName: 'Hilton Garden Inn',
-    //         fpCity: 'Berlin',
-    //         description: 'A charming cottage in the heart of the countryside.',
-    //         imageUrl: 'https://cf.bstatic.com/xdata/images/hotel/square600/237686104.webp?k=3813d2af0058b6676f19e8d707977dd086b6fd873d46dd9c19a8aaba24f813ff&o=',
-    //         price: 88,
-    //     },
-    //     {
-    //         fpName: 'Hilton Garden Inn',
-    //         fpCity: 'Berlin',
-    //         description: 'A charming cottage in the heart of the countryside.',
-    //         imageUrl: 'https://cf.bstatic.com/xdata/images/hotel/square600/237686104.webp?k=3813d2af0058b6676f19e8d707977dd086b6fd873d46dd9c19a8aaba24f813ff&o=',
-    //         price: 88,
-    //     },
-    //   ];
     return (
         <div>
             <Navbar />
