@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Hotel.css"
 import Navbar from "../../components/navbar/Navbar";
 import Header from "../../components/header/Header";
@@ -14,6 +14,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useLocation } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
+import { SearchContext } from "../../context/SearchContext";
 
 const Hotel = () => {
     const location = useLocation();
@@ -39,7 +40,9 @@ const Hotel = () => {
   
       setSlideNumber(newSlideNumber)
     };
-  
+
+    const { dates } = useContext(SearchContext);
+    console.log(dates);
     return (
 <div>
       <Navbar />
